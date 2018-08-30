@@ -1,7 +1,7 @@
-var resultBox = document.getElementById('resultBox'),
-	screenBox = document.getElementById('screenBox'),
-	inputArray = [],
-	opratorArray = [];
+var resultBox = document.getElementById('resultBox'),	
+    screenBox = document.getElementById('screenBox'),	
+    inputArray = [],	
+    opratorArray = [];
 	
 init();
 
@@ -27,11 +27,7 @@ function backSpace(){
 	screenBox.value = screenBox.value.slice(0,-1);
 }
 
-function onScreenBoxKeydown(){
-	return screenBox.value;
-}
 function clickOnOprator(oprator){
-	
 	if(opratorArray.length == 0){
 		inputArray.push(screenBox.value);
 	}else{
@@ -48,10 +44,7 @@ function clickOnOprator(oprator){
 	}else{
 		screenBox.value += oprator;
 	}
-	
 }
-
-
 
 function equal(){
 	if(opratorArray.length == 0 ) {
@@ -61,6 +54,4 @@ function equal(){
 		inputArray= [];
 		inputArray.push(resultBox.value);
 	}
-	
-
 }
