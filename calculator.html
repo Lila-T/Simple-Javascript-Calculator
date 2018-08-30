@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+<table style="width:180px;">	
+	<tr>
+		<td  colspan="5" style="border:1px solid">
+			<input id="screenBox" class="screen-box" onkeydown="onScreenBoxKeydown()"></input>
+			</br>
+			<input id="resultBox" class="result-box"></input>
+		</td>
+	</tr>
+	<tr>
+		<td class="col-small"><button class="btn" onclick="clickOnNumber(7)">7</button></td>
+		<td class="col-small"><button class="btn" onclick="clickOnNumber(8)">8</button></td>
+		<td class="col-small"><button class="btn" onclick="clickOnNumber(9)">9</button></td>
+		<td class="col-small"><button class="btn" onclick="clickOnOprator('/')">/</button></td>
+		<td class="col-small"><button class="btn" onclick="clearResultBox()">C</button></td>
+	</tr>
+	
+	<tr>
+		<td class="col-small"><button class="btn" onclick="clickOnNumber(4)">4</button></td>
+		<td class="col-small"><button class="btn" onclick="clickOnNumber(5)">5</button></td>
+		<td class="col-small"><button class="btn" onclick="clickOnNumber(6)">6</button></td>
+		<td class="col-small"><button class="btn" onclick="clickOnOprator('*')">*</button></td>
+		<td class="col-small"><button class="btn-backspace" onclick="backSpace()"></button></td>
+	</tr>
+	
+	<tr>
+		<td class="col-small"><button class="btn" onclick="clickOnNumber(1)">1</button></td>
+		<td class="col-small"><button class="btn" onclick="clickOnNumber(2)">2</button></td>
+		<td class="col-small"><button class="btn" onclick="clickOnNumber(3)">3</button></td>
+		<td class="col-small"><button class="btn" onclick="clickOnOprator('-')">-</button></td>
+		<td rowspan="2"><button class="btn-large-vertical" onclick="clickOnOprator('=')">=</button></td>
+	</tr>
+	
+	<tr>
+		<td colspan=2><button class="btn-large-horizontal" onclick="clickOnNumber(0)">0</button></td>
+		<td class="col-small"><button class="btn" onclick="clickOnDote()">.</button></td>
+		<td class="col-small"><button class="btn" onclick="clickOnOprator('+')">+</button></td>	
+		<td rowspan="0"></td>
+	</tr>
+
+
+</table>
+
+<script src="calculator.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,47 @@
+.col-small{
+    width: 36px;
+    height: 30px;
+	padding:0px;
+}
+.btn{
+	width:35px;
+	height:30px;
+	padding:0px;
+	border:1px outset;
+}
+.btn-backspace{
+	width:35px;
+	height:30px;
+	padding:0px;
+	border:1px outset;
+	background-image: url("img/backspace.png");
+}
+
+.btn-large-horizontal{
+	width:72px;
+	height:30px;
+	padding:0px;
+	border: 1px outset;
+}
+
+.btn-large-vertical{
+	width:34px;
+	height:63px;
+	padding:0px;
+    border: 1px outset;
+}
+.screen-box{
+	border:0px;
+	font-size:11px;
+	width:180px;
+	outline:0;
+}
+
+.result-box{
+	border:0px;
+	font-size:13px;
+	width:180px;
+	outline:0;
+}
+}
+
