@@ -1,64 +1,46 @@
-var resultBox = document.getElementById('resultBox'),	
-    screenBox = document.getElementById('screenBox'),	
-    inputArray = [],	
-    opratorArray = [];
-	
-init();
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+	<table style="width:180px;">	
+		<tr>
+			<td colspan="5" style="border:1px solid; height:40px;">
+				<span id="screenBox" class="screen-box"></span>
+				<br/>
+				<span id="resultBox" class="result-box"></span>
+			</td>
+		</tr>
+		<tr>
+			<td class="col-small"><button class="btn" onclick="clickOnNumber(7)">7</button></td>
+			<td class="col-small"><button class="btn" onclick="clickOnNumber(8)">8</button></td>
+			<td class="col-small"><button class="btn" onclick="clickOnNumber(9)">9</button></td>
+			<td class="col-small"><button class="btn" onclick="clickOnOprator('/')">/</button></td>
+			<td class="col-small"><button class="btn" onclick="clearResultBox()">C</button></td>
+		</tr>
+		<tr>
+			<td class="col-small"><button class="btn" onclick="clickOnNumber(4)">4</button></td>
+			<td class="col-small"><button class="btn" onclick="clickOnNumber(5)">5</button></td>
+			<td class="col-small"><button class="btn" onclick="clickOnNumber(6)">6</button></td>
+			<td class="col-small"><button class="btn" onclick="clickOnOprator('*')">*</button></td>
+			<td class="col-small"><button class="btn-backspace" onclick="backSpace()"></button></td>
+		</tr>
+		<tr>
+			<td class="col-small"><button class="btn" onclick="clickOnNumber(1)">1</button></td>
+			<td class="col-small"><button class="btn" onclick="clickOnNumber(2)">2</button></td>
+			<td class="col-small"><button class="btn" onclick="clickOnNumber(3)">3</button></td>
+			<td class="col-small"><button class="btn" onclick="clickOnOprator('-')">-</button></td>
+			<td rowspan="2"><button class="btn-large-vertical" onclick="clickOnOprator('=')">=</button></td>
+		</tr>
+		<tr>
+			<td colspan=2><button class="btn-large-horizontal" onclick="clickOnNumber(0)">0</button></td>
+			<td class="col-small"><button class="btn" onclick="clickOnDote()">.</button></td>
+			<td class="col-small"><button class="btn" onclick="clickOnOprator('+')">+</button></td>	
+			<td rowspan="0"></td>
+		</tr>
+	</table>
+	<script src="calculator.js"></script>
+</body>
+</html>
 
-function init(){
-	screenBox.focus();
-}	
-
-function clickOnNumber(number){
-	screenBox.innerHTML += number;
-}
-
-function clickOnDote(){
-	screenBox.innerHTML += '.';
-}
-function clearResultBox(){
-	screenBox.innerHTML = '';
-	resultBox.innerHTML = '';
-	inputArray = [];
-	opratorArray = [];
-}
-
-function backSpace(){
-	screenBox.innerHTML = screenBox.innerHTML.slice(0,-1);
-}
-
-function clickOnOprator(oprator){
-	if(opratorArray.length == 0){
-		if(resultBox.innerHTML) {
-			screenBox.innerHTML = resultBox.innerHTML; 
-			inputArray.push(resultBox.innerHTML);
-		} else{
-			inputArray.push(screenBox.innerHTML);
-		}
-	}else{
-		resultNumber = screenBox.innerHTML.substring(screenBox.innerHTML.lastIndexOf(opratorArray[0])+1 , screenBox.innerHTML.length);
-		if(resultNumber == "") return;
-		inputArray.push(resultNumber);
-	}
-	equal();
-	opratorArray =[];
-	opratorArray.push(oprator);
-	if( oprator == "=") {
-		screenBox.innerHTML = '';
-		opratorArray= [];
-	}else{
-		screenBox.innerHTML += oprator;
-	}
-}
-
-function equal(){
-	if(opratorArray.length == 0 ) {
-		resultBox.innerHTML = inputArray[0];
-	}else{
-		resultBox.innerHTML = eval(resultBox.innerHTML + opratorArray[opratorArray.length - 1] + inputArray[inputArray.length - 1]);
-		inputArray= [];
-		inputArray.push(resultBox.innerHTML);
-	}
-}
-
-   
