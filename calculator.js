@@ -10,28 +10,33 @@ function init(){
 }	
 
 function clickOnNumber(number){
-	screenBox.value += number;
+	screenBox.innerHTML += number;
 }
 
 function clickOnDote(){
-	screenBox.value += '.';
+	screenBox.innerHTML += '.';
 }
 function clearResultBox(){
-	screenBox.value = '';
-	resultBox.value = '';
+	screenBox.innerHTML = '';
+	resultBox.innerHTML = '';
 	inputArray = [];
 	opratorArray = [];
 }
 
 function backSpace(){
-	screenBox.value = screenBox.value.slice(0,-1);
+	screenBox.innerHTML = screenBox.innerHTML.slice(0,-1);
 }
 
 function clickOnOprator(oprator){
 	if(opratorArray.length == 0){
-		inputArray.push(screenBox.value);
+		if(resultBox.innerHTML) {
+			screenBox.innerHTML = resultBox.innerHTML; 
+			inputArray.push(resultBox.innerHTML);
+		} else{
+			inputArray.push(screenBox.innerHTML);
+		}
 	}else{
-		resultNumber = screenBox.value.substring(screenBox.value.lastIndexOf(opratorArray[0])+1 , screenBox.value.length);
+		resultNumber = screenBox.innerHTML.substring(screenBox.innerHTML.lastIndexOf(opratorArray[0])+1 , screenBox.innerHTML.length);
 		if(resultNumber == "") return;
 		inputArray.push(resultNumber);
 	}
@@ -39,19 +44,21 @@ function clickOnOprator(oprator){
 	opratorArray =[];
 	opratorArray.push(oprator);
 	if( oprator == "=") {
-		screenBox.value = '';
+		screenBox.innerHTML = '';
 		opratorArray= [];
 	}else{
-		screenBox.value += oprator;
+		screenBox.innerHTML += oprator;
 	}
 }
 
 function equal(){
 	if(opratorArray.length == 0 ) {
-		resultBox.value = inputArray[0];
+		resultBox.innerHTML = inputArray[0];
 	}else{
-		resultBox.value = eval(resultBox.value + opratorArray[opratorArray.length - 1] + inputArray[inputArray.length - 1]);
+		resultBox.innerHTML = eval(resultBox.innerHTML + opratorArray[opratorArray.length - 1] + inputArray[inputArray.length - 1]);
 		inputArray= [];
-		inputArray.push(resultBox.value);
+		inputArray.push(resultBox.innerHTML);
 	}
 }
+
+   
